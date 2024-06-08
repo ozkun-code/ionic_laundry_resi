@@ -1,17 +1,96 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <style>
+    .header {
+      background-color: #6bdef1;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      border-bottom-left-radius: 50% 30%;
+      border-bottom-right-radius: 50% 30%;
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .profile-banner {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: #f8f8f8;
+      border: 1px solid #ccc;
+      margin: 10px;
+      border-radius: 5px;
+    }
+    .profile-banner img {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin-right: 15px;
+    }
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+    }
+    .profile-details .name {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .profile-details .points {
+      font-size: 14px;
+      color: #888;
+    }
+    .tracking-section {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 5px;
+    }
+    .icon-grid {
+      padding: 10px;
+    }
+    .menu-item {
+      text-align: center;
+    }
+    .icon-grid ion-col {
+      margin-bottom: 10px;
+    }
+  </style>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="header">
+    <h1>My JNE</h1>
+  </div>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="profile-banner">
+    <img src="assets/img/profile.jpeg" alt="Profile Image" />
+    <div class="profile-details">
+      <span class="name">Nama Pengguna</span>
+      <span class="points">Poin: 1200</span>
+    </div>
+  </div>
+
+  <div class="icon-grid">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" class="menu-item">
+          <ion-icon name="pricetag-outline"></ion-icon>
+          <p>Cek Tarif</p>
+        </ion-col>
+        <ion-col size="4" class="menu-item">
+          <ion-icon name="pricetag-outline"></ion-icon>
+          <p>Claim Voucher</p>
+        </ion-col>
+        <ion-col size="4" class="menu-item">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          <p>Informasi Laundry</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="tracking-section">
+    <ion-input placeholder="Masukan Nomor Resi" clear-input></ion-input>
+    <ion-button expand="block">Cek Resi</ion-button>
+  </div>
 </ion-content>
