@@ -1,0 +1,42 @@
+<ion-header class="custom-header">
+  <div class="header-content">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/tabs/tab1"
+        class="back-button"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="tracking-title">Voucher</ion-title>
+    <ion-buttons slot="end">
+      <!-- Tambahkan tombol lain di sini jika diperlukan -->
+    </ion-buttons>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">claim-voucher</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngFor="let voucher of vouchers">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Voucher Laundry </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="voucher-details">
+          <p>Discount: {{ voucher.discount_percent }}%</p>
+          <p>Points Required: {{ voucher.points_required }}</p>
+        </div>
+        <ion-button
+          expand="block"
+          color="primary"
+          (click)="claimVoucher(voucher.id)"
+          >Claim</ion-button
+        >
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,75 @@
+/* Custom header styling */
+.custom-header {
+  background-color: var(--ion-color-primary);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-bottom: 10px;
+  border-bottom-left-radius: 50% 30%;
+  border-bottom-right-radius: 50% 30%;
+}
+.custom-header ion-title {
+  margin-right: 60px; /* Adjust the value as needed */
+}
+
+.back-button {
+  margin-left: 10px;
+}
+
+.tracking-title {
+  font-size: 20px;
+  font-weight: bold;
+  flex-grow: 1; /* Menambahkan flex-grow */
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+.tracking-card {
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.tracking-id {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tracking-status {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.status-step ion-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.status-step .status-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-step.completed ion-icon {
+  color: #4caf50;
+}
+
+.status-step.active ion-icon {
+  color: #ff9800;
+}
+
+.courier-info {
+  margin-top: 20px;
+}
+
+.view-package-button {
+  margin: 20px;
+}

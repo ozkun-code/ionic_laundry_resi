@@ -26,4 +26,15 @@ export const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
     canActivate: [authGuard],
   },
+  {
+    path: 'resi',
+    loadComponent: () => import('./resi/resi.page').then((m) => m.ResiPage),
+  },
+  {
+    path: 'claim-voucher',
+    loadComponent: () =>
+      import('./claim-voucher/claim-voucher.page').then(
+        (m) => m.ClaimVoucherPage
+      ),
+  },
 ];

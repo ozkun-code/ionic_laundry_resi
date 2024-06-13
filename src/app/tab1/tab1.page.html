@@ -1,96 +1,53 @@
 <ion-content>
-  <style>
-    .header {
-      background-color: #6bdef1;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      border-bottom-left-radius: 50% 30%;
-      border-bottom-right-radius: 50% 30%;
-      margin-bottom: 10px;
-    }
-    .header h1 {
-      margin: 0;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .profile-banner {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      background-color: #f8f8f8;
-      border: 1px solid #ccc;
-      margin: 10px;
-      border-radius: 5px;
-    }
-    .profile-banner img {
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      margin-right: 15px;
-    }
-    .profile-details {
-      display: flex;
-      flex-direction: column;
-    }
-    .profile-details .name {
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .profile-details .points {
-      font-size: 14px;
-      color: #888;
-    }
-    .tracking-section {
-      border: 1px solid #ccc;
-      padding: 20px;
-      margin: 10px;
-      border-radius: 5px;
-    }
-    .icon-grid {
-      padding: 10px;
-    }
-    .menu-item {
-      text-align: center;
-    }
-    .icon-grid ion-col {
-      margin-bottom: 10px;
-    }
-  </style>
-
   <div class="header">
-    <h1>My JNE</h1>
+    <h1>WashUp App</h1>
   </div>
 
   <div class="profile-banner">
     <img src="assets/img/profile.jpeg" alt="Profile Image" />
     <div class="profile-details">
-      <span class="name">Nama Pengguna</span>
-      <span class="points">Poin: 1200</span>
+      <span class="name">{{ customer?.name }}</span>
+      <span class="points">Poin: {{ customer?.points }}</span>
     </div>
   </div>
 
   <div class="icon-grid">
     <ion-grid>
       <ion-row>
-        <ion-col size="4" class="menu-item">
-          <ion-icon name="pricetag-outline"></ion-icon>
+        <ion-col size="6" class="menu-item">
+          <img class="menu-icon" src="assets/img/budget.png" alt="Cek Tarif" />
           <p>Cek Tarif</p>
         </ion-col>
-        <ion-col size="4" class="menu-item">
-          <ion-icon name="pricetag-outline"></ion-icon>
-          <p>Claim Voucher</p>
-        </ion-col>
-        <ion-col size="4" class="menu-item">
-          <ion-icon name="information-circle-outline"></ion-icon>
-          <p>Informasi Laundry</p>
+        <ion-col size="6" class="menu-item">
+          <ion-button (click)="navigateToClaimVoucher()">
+            <img
+              class="menu-icon"
+              src="assets/img/discount.png"
+              alt="Claim Voucher"
+            />
+            <p>Claim Voucher</p>
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
 
-  <div class="tracking-section">
-    <ion-input placeholder="Masukan Nomor Resi" clear-input></ion-input>
-    <ion-button expand="block">Cek Resi</ion-button>
+  <div class="transactions-section">
+    <h2>Transaksi Berjalan</h2>
+    <ion-list>
+      <ion-item
+        *ngFor="let transaction of transactions"
+        class="transaction-item"
+      >
+        <div class="transaction-table">
+          <div class="transaction-row">
+            <div class="transaction-cell">ID: {{ transaction.id }}</div>
+            <ion-button expand="block" (click)="checkResi(transaction.id)"
+              >Tracker</ion-button
+            >
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

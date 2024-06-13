@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -32,6 +33,7 @@ export class LoginPage implements OnInit {
     private authService: AuthenticationService,
     private alertController: AlertController,
     private router: Router,
+
     private loadingController: LoadingController
   ) {
     addIcons({
@@ -42,8 +44,8 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.credentials = this.fb.group({
-      email: ['eve.holt@reqres.in', [Validators.required, Validators.email]],
-      password: ['cityslicka', [Validators.required, Validators.minLength(6)]],
+      email: ['ozi@mail.com', [Validators.required, Validators.email]],
+      password: ['washup', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -52,9 +54,11 @@ export class LoginPage implements OnInit {
     await loading.present();
 
     this.authService.login(this.credentials.value).subscribe(
-      async (res) => {
+      async () => {
         await loading.dismiss();
-        this.router.navigateByUrl('/tabs', { replaceUrl: true });
+        const token = localStorage.getItem('my-token'); // Get the token from local storage
+        console.log('Token:', token); // Print the token to the console
+        this.router.navigateByUrl('tabs/tab1', { replaceUrl: true });
       },
       async (res) => {
         await loading.dismiss();

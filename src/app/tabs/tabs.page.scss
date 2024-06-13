@@ -7,7 +7,7 @@
 }
 
 .custom-tab-bar ion-tab-button {
-  --color-selected: #6bdef1; /* Active tab color */
+  --color-selected: var(--ion-color-primary); /* Active tab color */
   --color: #b0b0b0; /* Inactive tab color */
   font-size: 12px; /* Font size for the labels */
   display: flex;

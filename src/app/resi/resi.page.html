@@ -1,0 +1,61 @@
+<ion-header class="custom-header">
+  <div class="header-content">
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/tabs/tab1"
+        class="back-button"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="tracking-title">Tracking</ion-title>
+    <ion-buttons slot="end">
+      <!-- Tambahkan tombol lain di sini jika diperlukan -->
+    </ion-buttons>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-card class="tracking-card">
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label class="tracking-id">Tracking ID: {{ id }}</ion-label>
+      </ion-item>
+
+      <!-- Iterate over resiData array -->
+      <div *ngFor="let resiItem of resiData" class="tracking-status">
+        <div class="status-step completed">
+          <ion-icon [name]="getStatusIcon()" class="status-icon"></ion-icon>
+          <div class="status-info">
+            <ion-label>{{ resiItem.status }}</ion-label>
+            <ion-text
+              >{{ resiItem.changed_at | date: 'hh:mm a MMM dd yyyy' }}</ion-text
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Example of displaying courier information -->
+      <ion-item lines="none" class="courier-info">
+        <ion-avatar slot="start">
+          <img src="assets/img/man.png" />
+        </ion-avatar>
+        <ion-label>
+          <h2>Admin</h2>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button>
+            <ion-icon slot="icon-only" name="call-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button
+    expand="full"
+    shape="round"
+    color="primary"
+    class="view-package-button"
+  >
+    View Package Info
+  </ion-button>
+</ion-content>
